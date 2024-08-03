@@ -14,9 +14,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="container">
+        <div className="globalContainer">
           <NavBar />
-          {children}
+          <div className="flex-grow p-8 overflow-auto">{children}</div>
           <Footer />
         </div>
       </body>
