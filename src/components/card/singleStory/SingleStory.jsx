@@ -1,9 +1,11 @@
 import Image from "next/image";
 import { Suspense } from "react";
 import PostUser from "@/components/postUser/PostUser";
+import CommentsBlock from "./commentsBlock/CommentsBlock";
 
 const SingleStory = ({ post }) => {
   return (
+    <div>
       <div className="flex bg-gray-800 h-full rounded-lg gap-8">
         {post.img && (
           <div className="flex-1 relative h-[900px] rounded-lg">
@@ -42,6 +44,10 @@ const SingleStory = ({ post }) => {
           </div>
         </div>
       </div>
+      <div>
+        <CommentsBlock />
+      </div>
+    </div>
   );
 };
 

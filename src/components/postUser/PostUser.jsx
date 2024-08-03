@@ -4,7 +4,7 @@ const PostUser = () => {
             <span className="font-sans text-gray-500 text-lg">
                 Author
             </span>
-            <span className="font-sans text-gray-300 text-lg">
+            <span className="font-sans text-gray-400 text-lg">
                 username
             </span>
         </div>
