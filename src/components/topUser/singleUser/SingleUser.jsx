@@ -6,11 +6,11 @@ const SingleUser = ({ user }) => {
       <div class="flex items-center bg-sky-700 p-3 rounded-lg shadow-xl">
         <div class="flex-shrink-0">
           <Image
-            class="rounded-full"
             src={user.img}
             alt="image"
             width={32}
             height={32}
+            className="rounded-full object-cover"
           />
         </div>
         <div class="flex-1 min-w-0 ms-4">
@@ -22,7 +22,7 @@ const SingleUser = ({ user }) => {
           </p>
         </div>
         <div class="rounded-md p-3 bg-indigo-700 inline-flex items-center text-base font-semibold text-gray-300 dark:text-white">
-          LV.{user.activity}
+          Lv.{user.activity}
         </div>
       </div>
     </li>

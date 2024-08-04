@@ -1,11 +1,12 @@
 import SingleStory from "@/components/card/singleStory/SingleStory";
 import ThemeDesc from "@/components/themeDesc/ThemeDesc";
 import TopUsers from "@/components/topUser/TopUsers";
+import { getInterest, getStories } from "@/lib/data";
 
 const stories = [
   {
     title: "Test",
-    desc: "desc",
+    desc: "desc, I'm gonna say moreI'm gonna say moreI'm gonna say moreI'm gonna say moreI'm gonna say more",
     img: "/About.jpg",
   },
   {
@@ -24,17 +25,24 @@ const stories = [
   },
 ];
 
-const SingleInterest = () => {
+const SingleInterest = async ({ params }) => {
+  const { interestId } = params;
+  const stories = await getStories(interestId);
+  const curInterest = await getInterest(interestId);
   return (
     <div className="flex flex-col gap-10 rounded-xl">
       <div className="flex h-96 gap-10">
         <div className="flex-1 w-1/2 max-h-128 h-auto">
           <ThemeDesc
-            theme={{ title: "Title", desc: "desc", img: "/About.jpg" }}
+            theme={{
+              title: curInterest.title,
+              desc: curInterest.desc,
+              img: curInterest.img,
+            }}
           />
         </div>
         <div className="flex-1 w-1/2 max-h-96 h-96">
-          <TopUsers />
+          <TopUsers users={curInterest.users} />
         </div>
       </div>
       <hr className="border-gray-700" />
@@ -42,7 +50,13 @@ const SingleInterest = () => {
         {stories.map((story) => {
           return (
             <SingleStory
-              post={{ title: story.title, desc: story.desc, img: story.img }}
+              post={{
+                title: story.title,
+                desc: story.desc,
+                img: story.img,
+                userId: story.userId,
+                storyId: story._id,
+              }}
             />
           );
         })}
