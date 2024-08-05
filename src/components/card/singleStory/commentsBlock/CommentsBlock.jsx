@@ -29,12 +29,12 @@ const CommentsBlock = async ({ storyId, interestId }) => {
           );
         })}
       </ul>
-      <form action={addComment}>
+      <form action={addComment} className="flex gap-1">
         <input type="hidden" value={user._id} name="userId"/>
-        <input type="text" placeholder="write your comment" name="content"/>
+        <input type="text" placeholder="write your comment" name="content" className="rounded-xl p-2 w-full"/>
         <input type="hidden" value={storyId} name="storyId"/>
         <input type="hidden" value={interestId} name="interestId"/>
-        <button>send</button>
+        <button className="text-white font-sans bg-blue-600 rounded-2xl p-2">send</button>
       </form>
     </div>
   );

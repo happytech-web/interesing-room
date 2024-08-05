@@ -2,6 +2,7 @@ import InterestCard from "@/components/InterestCard/InterestCard";
 import InterestInput from "@/components/newPostInput/interestInput";
 import { getInterests } from "@/lib/data";
 
+
 const Interests = async () => {
   const interests = await getInterests();
   return (
