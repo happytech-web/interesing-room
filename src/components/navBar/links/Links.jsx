@@ -1,4 +1,6 @@
+import { handleLogout } from "@/lib/action";
 import NavItem from "./navItem/NavItem";
+import { auth } from "@/lib/auth";
 
 const links = [
   {
@@ -15,9 +17,9 @@ const links = [
   },
 ];
 
-const Links = () => {
+const Links = async () => {
   // temp
-  const session = true;
+  const session = await auth();
   const isAdmin = true;
 
   return (
@@ -29,8 +31,10 @@ const Links = () => {
 
         {session ? (
           <>
-            {isAdmin && <NavItem item={{ title: "Admin", path: "/admin" }} />}
-            <button className="flex items-center text-gray-300 font-sans text-lg bg-blue-700 p-3 rounded-3xl font-bold">Logout</button>
+            {session.user?.isAdmin && <NavItem item={{ title: "Admin", path: "/admin" }} />}
+            <form action={handleLogout}>
+              <button className="flex items-center text-gray-300 font-sans text-lg bg-blue-700 p-3 rounded-3xl font-bold">Logout</button>
+            </form>
           </>
         ) : (
           <NavItem item={{ title: "Login", path: "/login" }} />

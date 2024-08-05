@@ -29,7 +29,7 @@ const TopUsers = async ({ users }) => {
                   name: user.username,
                   img: user.img,
                   email: user.email,
-                  activity: 8,
+                  activity: user.activity,
                 }}
               />
             );

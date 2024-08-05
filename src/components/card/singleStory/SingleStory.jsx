@@ -47,7 +47,7 @@ const SingleStory = async ({ post }) => {
         </div>
       </div>
       <div>
-        <CommentsBlock storyId={post.storyId} />
+        <CommentsBlock storyId={post.storyId} interestId={post.interestId} />
       </div>
     </div>
   );

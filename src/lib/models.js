@@ -17,11 +17,13 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: true,
-      min: 6,
     },
     img: {
       type: String,
+    },
+    activity: {
+      type: Number,
+      default: 0,
     },
     isAdmin: {
       type: Boolean,
@@ -56,7 +58,6 @@ const storySchema = new mongoose.Schema(
     interestId: {
       type: String,
       required: true,
-      unique: true,
     },
     userId: {
       type: String,
@@ -82,7 +83,6 @@ const commentSchema = new mongoose.Schema(
     storyId: {
       type: String,
       required: true,
-      unique: true,
     },
     userId: {
       type: String,
@@ -95,10 +95,10 @@ const commentSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export const User = mongoose.models.User || mongoose.model("User", userSchema);
+export const User = mongoose.models?.User || mongoose.model("User", userSchema);
 export const Interest =
-  mongoose.models.Interest || mongoose.model("Interest", interestSchema);
+  mongoose.models?.Interest || mongoose.model("Interest", interestSchema);
 export const Story =
-  mongoose.models.Story || mongoose.model("Story", storySchema);
+  mongoose.models?.Story || mongoose.model("Story", storySchema);
 export const Comment =
-  mongoose.models.Comment || mongoose.model("Comment", commentSchema);
+  mongoose.models?.Comment || mongoose.model("Comment", commentSchema);

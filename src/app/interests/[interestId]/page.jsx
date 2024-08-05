@@ -1,7 +1,10 @@
+import {getSession} from "next-auth/react"
 import SingleStory from "@/components/card/singleStory/SingleStory";
+import StoryInput from "@/components/newPostInput/storyInput";
 import ThemeDesc from "@/components/themeDesc/ThemeDesc";
 import TopUsers from "@/components/topUser/TopUsers";
 import { getInterest, getStories } from "@/lib/data";
+import { auth } from "@/lib/auth";
 
 const stories = [
   {
@@ -26,6 +29,8 @@ const stories = [
 ];
 
 const SingleInterest = async ({ params }) => {
+  const info = await auth();
+  const user = info.user;
   const { interestId } = params;
   const stories = await getStories(interestId);
   const curInterest = await getInterest(interestId);
@@ -46,6 +51,7 @@ const SingleInterest = async ({ params }) => {
         </div>
       </div>
       <hr className="border-gray-700" />
+      <StoryInput interestId={interestId}  userEmail={user.email} />
       <div className="flex flex-col gap-5">
         {stories.map((story) => {
           return (
@@ -56,6 +62,7 @@ const SingleInterest = async ({ params }) => {
                 img: story.img,
                 userId: story.userId,
                 storyId: story._id,
+                interestId: interestId,
               }}
             />
           );

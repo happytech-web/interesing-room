@@ -34,6 +34,17 @@ export const getUser = async (userId) => {
   }
 };
 
+export const getUserByEmail = async (userEmail) => {
+  try {
+    connectToDb();
+    const user = await User.findOne({email: userEmail});
+    return user;
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to fetch User");
+  }
+};
+
 export const getStories = async (interestId) => {
   try {
     connectToDb();
