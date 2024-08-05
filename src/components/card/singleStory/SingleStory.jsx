@@ -35,7 +35,7 @@ const SingleStory = async ({ post }) => {
                   Published
                 </span>
                 <span className="font-sans text-gray-400 text-lg">
-                  2024 01 01
+                  {user.createdAt.toString().slice(4, 15)}
                 </span>
               </div>
             </div>
