@@ -13,6 +13,7 @@
     "mongoose": "^8.0.0",
     "next": "14.2.5",
     "next-auth": "^5.0.0-beta.3",
+    "pm2": "^5.4.2",
     "react": "^18",
     "react-dom": "^18"
   },
@@ -21,5 +22,10 @@
     "eslint-config-next": "14.2.5",
     "postcss": "^8",
     "tailwindcss": "^3.4.1"
+  },
+  "bin": "server.js",
+  "pkg": {
+    "assets": [".next/**/*"],
+    "scripts": [".next/dist/**/*.js"]
   }
 }

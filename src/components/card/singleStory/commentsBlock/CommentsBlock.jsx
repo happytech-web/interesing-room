@@ -21,10 +21,11 @@ const CommentsBlock = async ({ storyId, interestId }) => {
         Comments
       </h1>
       <ul className="rounded-xl flex flex-col gap-3 p-3 divide-y divide-gray-700">
-        {comments.map((comment) => {
+        {comments.map((comment, key) => {
           return (
             <SingleComment
               comment={{ content: comment.content, userId: comment.userId }}
+              key={key}
             />
           );
         })}

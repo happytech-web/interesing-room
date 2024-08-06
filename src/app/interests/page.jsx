@@ -9,13 +9,14 @@ const Interests = async () => {
     <div>
       <InterestInput />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-9 mx-5 h-screen">
-        {interests.map((interest) => {
+        {interests.map((interest, key) => {
           return (
             <InterestCard
               title={interest.title}
               desc={interest.desc}
               img={interest.img}
               slug={interest._id}
+              key={key}
             />
           );
         })}

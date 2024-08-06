@@ -22,7 +22,7 @@ const TopUsers = async ({ users }) => {
       </div>
       <div class="flow-root overflow-auto flex-grow max-h-72">
         <ul role="list" class="">
-          {usersList.map((user) => {
+          {usersList.map((user, key) => {
             return (
               <SingleUser
                 user={{
@@ -31,6 +31,7 @@ const TopUsers = async ({ users }) => {
                   email: user.email,
                   activity: user.activity,
                 }}
+                key={key}
               />
             );
           })}

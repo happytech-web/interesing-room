@@ -54,7 +54,7 @@ const SingleInterest = async ({ params }) => {
       <StoryInput interestId={interestId}  userEmail={user.email} />
       <hr className="border-gray-700" />
       <div className="flex flex-col gap-5">
-        {stories.map((story) => {
+        {stories.map((story, key) => {
           return (
             <SingleStory
               post={{
@@ -65,6 +65,7 @@ const SingleInterest = async ({ params }) => {
                 storyId: story._id,
                 interestId: interestId,
               }}
+              key={key}
             />
           );
         })}
